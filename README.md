@@ -1,3 +1,7 @@
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/aca784b9-31c5-41a7-9621-69ca11c34c67" />
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/0a3f2daa-6617-467a-b76d-ae1c62a5d10a" />
 
+Proses passing data dari form menuju tampilan pada project Flutter ini dilakukan melalui mekanisme konstruktor antar halaman. Pada halaman form_data.dart, pengguna mengisi tiga input yaitu nama, NIM, dan tahun lahir. Nilai dari masing-masing input disimpan menggunakan TextEditingController yang kemudian diambil saat tombol Simpan ditekan.
+Ketika tombol ditekan, Flutter akan menjalankan perintah Navigator.push() untuk berpindah ke halaman TampilDataPage, sambil mengirim data melalui konstruktor dengan format: TampilDataPage(nama: namaController.text, nim: nimController.text, tahunLahir: int.parse(tahunController.text))
+Pada halaman tampil_data.dart, data tersebut diterima sebagai parameter (nama, nim, dan tahunLahir) di dalam class TampilDataPage. Selanjutnya, tahun lahir digunakan untuk menghitung umur dengan rumus DateTime.now().year - tahunLahir, dan hasilnya ditampilkan bersama nama serta NIM dalam tampilan perkenalan.
+Dengan cara ini, data dari halaman form dapat dikirim dan digunakan di halaman lain tanpa perlu menyimpan di variabel global atau database. Mekanisme Navigator.push() dan konstruktor menjadikan proses passing data antar halaman dalam Flutter sederhana dan efisien.
